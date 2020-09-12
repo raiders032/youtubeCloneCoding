@@ -11,14 +11,14 @@ export const home = async (req, res) => {
   }
 };
 
-export const search =async (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
   let videos = [];
   try {
     videos = await Video.find({
-      title: { $regex: searchingBy, $options: "i" }
+      title: { $regex: searchingBy, $options: "i" },
     });
   } catch (error) {
     console.log(error);
